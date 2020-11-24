@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 
   geometry_msgs::Twist msg;
   msg.linear.x = 0.1;
-  msg.angular.z = 2;
+  msg.angular.z = 0.2;
   ros::Rate loop_rate(10);
 
   int count = 0;
