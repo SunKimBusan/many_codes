@@ -20,8 +20,8 @@ public:
 
   void cmdvelCallback(const geometry_msgs::Twist& msg)
   {
-    float left_rpm = (msg.linear.x - msg.angular.z*ROBOT_WIDTH/2)/(2*M_PI*WHEEL_RADIUS);
-    float right_rpm = (msg.linear.x + msg.angular.z*ROBOT_WIDTH/2)/(2*M_PI*WHEEL_RADIUS);
+    float left_vel = (msg.linear.x - msg.angular.z*ROBOT_WIDTH/2)/(WHEEL_RADIUS);
+    float right_vel = (msg.linear.x + msg.angular.z*ROBOT_WIDTH/2)/(WHEEL_RADIUS);
 
 
     trajectory_msgs::JointTrajectory traj;
@@ -33,8 +33,8 @@ public:
     trajectory_msgs::JointTrajectoryPoint points_n;
     points_n.positions.push_back(0);
     points_n.positions.push_back(0);
-    points_n.velocities.push_back(left_rpm);
-    points_n.velocities.push_back(right_rpm);
+    points_n.velocities.push_back(left_vel);
+    points_n.velocities.push_back(right_vel);
     traj.points.push_back(points_n);
     traj.points[0].time_from_start = ros::Duration(1.0,0.0);
 
