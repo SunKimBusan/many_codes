@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="base_movement_controller" name="cmdvel_publisher" type="cmdvel_publisher" />
+  <node pkg="base_movement_controller" name="tb3_base_controller" type="tb3_base_controller" />
+  <node pkg="base_movement_controller" name="odometry" type="odometry" />
+</launch>
